@@ -1,0 +1,14 @@
+<?php $this->setPriceDataObject($this->getSource()) ?>
+<?php if ((float) $this->getSource()->getSelectedStore()): ?>
+    <?php
+    $storeDetail = Mage::getModel('stepincheckout/selectstore')->load($this->getSource()->getSelectedStore());
+
+    $amt = $storeDetail->getPrice();
+    ?>
+    <tr>
+        <td class="label"><?php echo Mage::helper('stepincheckout')->__('Selected Store') ?></td>
+        <td>
+            <?php echo $this->displayPrices($amt, $amt); ?>
+        </td>
+    </tr>
+<?php endif; ?>

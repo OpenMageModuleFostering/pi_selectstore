@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/PI_Selectstore",
+    "type": "magento-module",
+    "license": "Open-Software-License-(OSL",
+    "homepage": "",
+    "description": "You can use this extension in order to add store, so that customer's can select their require store at the of checkout.",
+    "authors": [
+    {
+        "name": "pureimagination",
+        "email": "johncarter15oct@gmail.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

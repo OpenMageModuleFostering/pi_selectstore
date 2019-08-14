@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<config> 
+    <menu>
+        <pistores translate="title">
+            <title>Manage stores</title>
+            <sort_order>77</sort_order>
+            <children>
+               <stores translate="title">
+                    <title>stores</title>
+                    <sort_order>6</sort_order>
+                    <action>adminhtml/sitestore</action>
+                    <!--on click i.e on action our controller inside the adminhtml will call.-->
+                </stores>
+            </children>
+        </pistores>
+    </menu>
+	<acl>
+        <resources>
+            <admin>
+                <children>
+                    <pistores translate="title" module="stepincheckout">
+                        <title>Manage stores</title>
+                        <sort_order>76</sort_order>
+                        <children>
+                            <stores translate="title" module="stepincheckout">
+                                <title>stores</title>
+                            </stores>
+                        </children>
+                    </pistores>                  
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

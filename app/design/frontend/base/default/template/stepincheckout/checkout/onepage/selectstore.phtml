@@ -1,0 +1,44 @@
+<?php
+$stores = Mage::getModel('stepincheckout/selectstore')->getCollection();
+?>
+<form id="co-select-store-form" action="">
+    <div class="fieldset">
+        <ul class="form-list">
+            <li id="store-form">
+                <div class="fieldset">
+                    <ul>
+                        <li class="wide">
+                            <label for="select-store" class="required"><em>*</em><?php echo $this->__('Select a store') ?></label>
+                            <div class="input-box">
+                                <select name="selected_store" class="required-select">
+                                    <?php foreach ($stores as $store): ?>
+                                        <?php if($store->getPrice()!=0):?>
+                                            <?php $price = Mage::helper('core')->currency($store->getPrice(), true, false)?>
+                                        <?php else:?>
+                                            <?php $price = $this->__('Free')?>
+                                        <?php endif;?>
+                                        <option value="<?php echo $store->getId() ?>" <?php if ($this->getQuote()->getSelectedStore() == $store->getId()): ?>selected="selected"<?php endif; ?>><?php echo $store->getName() ?> - <?php echo $price;?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+        <div class="buttons-set" id="select-store-buttons-container">
+            <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+            <button type="button" title="<?php echo $this->__('Continue') ?>" class="button" onclick="selectStore.save()"><span><span><?php echo $this->__('Continue') ?></span></span></button>
+            <span class="please-wait" id="select-store-please-wait" style="display:none;">
+                <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Loading next step...') ?>" title="<?php echo $this->__('Loading next step...') ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
+            </span>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+        var selectStore = new selectStore('co-select-store-form', "<?php echo $this->getUrl('stepincheckout/index/saveStore') ?>");
+        var storeForm = new VarienForm('co-select-store-form');
+//]]>
+</script>

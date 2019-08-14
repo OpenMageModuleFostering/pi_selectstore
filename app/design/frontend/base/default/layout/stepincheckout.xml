@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<layout>
+    <checkout_onepage_index> <!-- Adding our new step to onepage block  -->
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/stepincheckout/store.js</name></action>
+        </reference>
+        <reference name="checkout.onepage">
+            <action method="setTemplate">
+                <name>stepincheckout/checkout/onepage.phtml</name>
+            </action>
+            <block type="stepincheckout/checkout_onepage_selectstore" name="stepincheckout.checkout.onepage.selectstore" as="select_store" template="stepincheckout/checkout/onepage/selectstore.phtml"/>
+        </reference>
+        <reference name="checkout.progress">
+            <action method="setTemplate">
+                <name>stepincheckout/checkout/onepage/progress.phtml</name>
+            </action>
+            <block type="checkout/onepage_progress" name="selectstore.progress" template="stepincheckout/checkout/onepage/progress/select_store.phtml"></block>
+        </reference>
+    </checkout_onepage_index>
+    <checkout_onepage_progress>
+        <reference name="root">
+            <action method="setTemplate">
+                <name>stepincheckout/checkout/onepage/progress.phtml</name>
+            </action>
+            <block type="checkout/onepage_progress" name="selectstore.progress" template="stepincheckout/checkout/onepage/progress/select_store.phtml"></block>
+        </reference>
+    </checkout_onepage_progress>
+    
+    <checkout_onepage_progress_select_store>
+        <!-- Mage_Checkout -->
+        <remove name="right"/>
+        <remove name="left"/>
+        
+        <block type="checkout/onepage_progress" name="root" output="toHtml" template="stepincheckout/checkout/onepage/progress/select_store.phtml">
+            <action method="setInfoTemplate"><method></method><template></template></action>
+        </block>
+    </checkout_onepage_progress_select_store>
+    
+    
+    
+    
+    <sales_order_view>
+        <reference name="order_totals">
+            <block type="stepincheckout/sales_order_total" name="stepincheckout.sales.order.total" />
+        </reference>
+    </sales_order_view>
+    <sales_order_print>
+        <reference name="order_totals">
+            <block type="stepincheckout/sales_order_total" name="stepincheckout.sales.order.total" />
+        </reference>
+    </sales_order_print>
+    <sales_email_order_items>
+        <reference name="order_totals">
+           <block type="stepincheckout/sales_order_total" name="stepincheckout.sales.order.total" />
+        </reference>
+    </sales_email_order_items>
+
+    <sales_order_invoice>
+        <reference name="invoice_totals">
+            <block type="stepincheckout/sales_order_total" name="stepincheckout.sales.order.total" />
+        </reference>
+    </sales_order_invoice>
+    <sales_order_printinvoice>
+        <reference name="invoice_totals">
+            <block type="stepincheckout/sales_order_total" name="stepincheckout.sales.order.total" />
+        </reference>
+    </sales_order_printinvoice>
+    <sales_email_order_invoice_items>
+        <reference name="invoice_totals">
+            <block type="stepincheckout/sales_order_total" name="stepincheckout.sales.order.total" />
+        </reference>
+    </sales_email_order_invoice_items>
+
+    <sales_order_creditmemo>
+        <reference name="creditmemo_totals">
+            <block type="stepincheckout/sales_order_total" name="stepincheckout.sales.order.total" />
+        </reference>
+    </sales_order_creditmemo>
+    <sales_order_printcreditmemo>
+        <reference name="creditmemo_totals">
+            <block type="stepincheckout/sales_order_total" name="stepincheckout.sales.order.total" />
+        </reference>
+    </sales_order_printcreditmemo>
+    <sales_email_order_creditmemo_items>
+        <reference name="creditmemo_totals">
+            <block type="stepincheckout/sales_order_total" name="stepincheckout.sales.order.total" />
+        </reference>
+    </sales_email_order_creditmemo_items>
+    
+</layout>
