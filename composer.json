@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/PI_Selectstore",
+    "name": "openmage-module-fostering\/pi_selectstore",
     "type": "magento-module",
-    "license": "Open-Software-License-(OSL",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "You can use this extension in order to add store, so that customer's can select their require store at the of checkout.",
     "authors": [
